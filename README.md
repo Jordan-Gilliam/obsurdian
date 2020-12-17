@@ -17,7 +17,7 @@
 - [Javascript](notes/javascript)
 - [Typescript](notes/typescript)
 - [React](notes/react)
-- [Docker](notes/docer)
+- [Docker](notes/docker)
 - [Rust](notes/rust)
 
 
