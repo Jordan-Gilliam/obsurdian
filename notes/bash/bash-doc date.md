@@ -1,20 +1,25 @@
 # date
-### date strings 
+## date strings 
 > strftime
-#### Hours
+### Hours
 ```bash
 date +'%H'
 ```
-#### Minutes
+___
+
+### Minutes
 ```bash
 date +'%M'
 ```
-#### Year:Hour:Minute:Second
+___
+
+### Year:Hour:Minute:Second
 ```bash
 date +'%Y:%M:%S'
 ```
+___
 
-#### shortcuts
+### shortcuts
 ```bash
 date +'%F %T'
 ```

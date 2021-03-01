@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bash/bash-doc path.md",
+            "file": "bash/bash-doc job control.md",
             "mode": "source"
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bash/bash-doc path.md",
+                "file": "bash/bash-doc job control.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,15 +86,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "bash/bash-doc path.md",
-    "bash/Untitled.md",
-    "bash-doc chmod.md",
-    "bash-doc permissions.md",
-    "Untitled.md",
-    "bash-doc.md",
-    "bash-doc path.md",
-    "bash-doc bashrc.md",
-    "bash/bash-doc scripts.md",
-    "postgres/postgres-doc-json.md"
+    "bash/bash-doc job control.md",
+    "bash/bash-doc irc.md",
+    "bash/bash-doc head&tail.md",
+    "bash/bash-doc grep.md",
+    "bash/bash-doc fold.md",
+    "bash/bash-doc environment variables.md",
+    "bash/bash-doc date.md",
+    "bash/bash-doc curl.md",
+    "bash/bash-doc chmod.md",
+    "bash/bash-doc cal.md"
   ]
 }

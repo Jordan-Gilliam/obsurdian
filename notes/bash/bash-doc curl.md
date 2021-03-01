@@ -1,4 +1,4 @@
-## What does cURL mean?
+# What does cURL mean?
 
 cURL (client URL) is an open source command line tool and a cross-platform library (_libcurl)_ used to transfer data between servers, distributed to nearly all new operating systems. cURL programming is used almost everywhere where sending or receiving data through internet protocols is required.
 

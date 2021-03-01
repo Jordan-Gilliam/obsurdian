@@ -1,12 +1,12 @@
 # backticks
 > allow the output of a program in the arguments list of another
 
-#### logging example
+## logging example
 ```bash
 echo some log data > foo-`date +%F`.log
 ```
 
-#### arithmetic
+## arithmetic
 ```bash
 echo Greetings from the year $((`date +%Y`+1000))
 
