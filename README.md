@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/Jordan-Gilliam/obsurdian"><img src="https://github.com/Jordan-Gilliam/readme-assets/blob/master/obsidian-logo.png" alt="obsidian logo"></a>
+  <a href="https://github.com/Jordan-Gilliam/obsurdian"><img src="https://github.com/Jordan-Gilliam/readme-assets/blob/master/obsirdian.png" alt="obsidian logo"></a>
 </h1>
 
 <h4 align="center"> [ obsirdian ] - notes, future blog posts, back up of local notes & scribbles</h4>
