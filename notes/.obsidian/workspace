@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "bash/bash-doc job control.md",
+            "file": "javascript/functional-architecture-patterns/composition.md",
             "mode": "source"
           }
         }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 214
+    "width": 280
   },
   "right": {
     "id": "35804a5bd040d6cb",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bash/bash-doc job control.md",
+                "file": "javascript/functional-architecture-patterns/composition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,15 +86,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "bash/bash-doc job control.md",
-    "bash/bash-doc irc.md",
-    "bash/bash-doc head&tail.md",
-    "bash/bash-doc grep.md",
-    "bash/bash-doc fold.md",
-    "bash/bash-doc environment variables.md",
-    "bash/bash-doc date.md",
-    "bash/bash-doc curl.md",
-    "bash/bash-doc chmod.md",
-    "bash/bash-doc cal.md"
+    "javascript/functional-architecture-patterns/composition.md",
+    "javascript/functional-architecture-patterns/normalize effect types.md",
+    "javascript/functional-architecture-patterns/naming grouping.md",
+    "javascript/functional-architecture-patterns/monoids.md",
+    "javascript/Untitled.md",
+    "javascript/Untitled 1.md",
+    "javascript/js-doc composition.md",
+    "javascript/js-doc currying.md",
+    "javascript/js-doc iteration vs recursion.md",
+    "javascript/js-doc higher order function.md"
   ]
 }
