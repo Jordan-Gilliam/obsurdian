@@ -12,7 +12,7 @@
 
 # Notes
 
-- [bash](notes/bash)
+- [Bash](notes/bash)
 - [Docker](notes/docker)
 - [Javascript](notes/javascript)
 - [Postgres](notes/postgres)
