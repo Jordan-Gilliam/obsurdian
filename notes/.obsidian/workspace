@@ -6,11 +6,10 @@
       {
         "id": "57d349e22bf05e37",
         "type": "leaf",
-        "active": true,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "javascript/functional-architecture-patterns/composition.md",
+            "file": "react/react-ssr apollo-rehydrate.md",
             "mode": "source"
           }
         }
@@ -53,7 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 280
+    "width": 237
   },
   "right": {
     "id": "35804a5bd040d6cb",
@@ -69,10 +68,12 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "javascript/functional-architecture-patterns/composition.md",
+                "file": "react/react-ssr apollo-rehydrate.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -85,16 +86,17 @@
     "width": 300,
     "collapsed": true
   },
+  "active": "57d349e22bf05e37",
   "lastOpenFiles": [
-    "javascript/functional-architecture-patterns/composition.md",
-    "javascript/functional-architecture-patterns/normalize effect types.md",
-    "javascript/functional-architecture-patterns/naming grouping.md",
-    "javascript/functional-architecture-patterns/monoids.md",
-    "javascript/Untitled.md",
-    "javascript/Untitled 1.md",
-    "javascript/js-doc composition.md",
-    "javascript/js-doc currying.md",
-    "javascript/js-doc iteration vs recursion.md",
-    "javascript/js-doc higher order function.md"
+    "react/react-ssr apollo-rehydrate.md",
+    "react/react-release 18.0.0.md",
+    "react/react-suspense cache resources.md",
+    "react/react-18.md",
+    "react/Untitled.md",
+    "react/react-18-createRoot.md",
+    "react/react-18-ssr.md",
+    "Untitled.md",
+    "quant/premium-ben-cowen.md",
+    "rust/rust-doc literals and operators.md"
   ]
 }
