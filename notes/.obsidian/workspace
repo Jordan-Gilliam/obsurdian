@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "react/react-ssr apollo-rehydrate.md",
+            "file": "react/react-doc eli5 glossary.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "react/react-ssr apollo-rehydrate.md",
+                "file": "react/react-doc eli5 glossary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "57d349e22bf05e37",
   "lastOpenFiles": [
+    "react/react-doc eli5.md",
+    "react/react-doc eli5 suspense.md",
+    "react/react-doc eli5 ssr.md",
+    "react/react-doc eli5 hydration.md",
+    "react/react-doc eli5 concurrency.md",
+    "react/react-doc eli5 batching.md",
+    "react/Untitled.md",
     "react/react-ssr apollo-rehydrate.md",
     "react/react-release 18.0.0.md",
-    "react/react-suspense cache resources.md",
-    "react/react-18.md",
-    "react/Untitled.md",
-    "react/react-18-createRoot.md",
-    "react/react-18-ssr.md",
-    "Untitled.md",
-    "quant/premium-ben-cowen.md",
-    "rust/rust-doc literals and operators.md"
+    "react/react-suspense cache resources.md"
   ]
 }
