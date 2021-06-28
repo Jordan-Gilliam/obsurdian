@@ -19,7 +19,7 @@
 > 
 > One key difference with traditional Promise-based programming is that Promises are not exposed to the user code. You don't deal with them directly. You don't Promise.all them or .then them or anything like this. Instead of "wait for Promise to resolve and run some user code", the paradigm is "React will retry rendering when it resolves". In some ways it's simpler but it takes some "unlearning" because the user loses some control they might be used to from traditional Promise-base programming.
 
-
+---
 # 🜂 CONCURRENCY
 
 > How do you explain concurrency?
@@ -47,6 +47,8 @@ Now, to translate the analogy, in React's case "phone calls" are your `setState`
 
 You can think of "urgent" `setState` updates as similar to urgent phone calls (e.g. your friend needs your help) while transitions are like relaxed conversations that can be put on hold or even interrupted if they're no longer relevant.
 
+---
+
 # 🜂 PASSIVE EFFECTS
 > How do you explain passive effects?
 
@@ -60,11 +62,13 @@ Sometimes when you say "effects" it's unclear if you mean both or just the first
 We avoid this terminology anywhere in the docs, but we used it between in the core team discussions and maybe some comments on GitHub. I think that's where library maintainers may have picked it up. I wouldn't expect application authors to know or care about this terminology — but if you see it, all it means is `useEffect`, nothing more.
 
 
-# 🜂 BATCHING AND AUTOMATIC BATCHING
+---
+
+# 🜂 BATCHING
 
 > How do you explain batching and automatic batching?
 
-## Batching
+### Batching
 
 Imagine you're making a breakfast.
 
@@ -113,7 +117,7 @@ updateScreen();
 
 That's how React always worked.
 
-## Automatic batching
+### Automatic batching
 
 Coming back to this example:
 
@@ -131,6 +135,7 @@ Previously, React used to re-render immediately in this case. This means you'd g
 
 With automated batching in React 18, it will always batch them. Practically speaking, it means React will "wait a bit" (the technical term if "until the end of the task or the microtask"). Then React will update the screen.
 
+---
 # 🜂 HYDRATION
 
 > How do you explain hydration?
@@ -141,7 +146,53 @@ Dan's explanation of hydration in [#37](https://github.com/reactwg/react-18/disc
 
 > The analogy I like for "hydration" is that it loads dry, and then oil is applied to the gears to move it.
 
+---
+# 🜂 STATE TRANSITION
+> How do you explain state transition and how do we know if the state transition is expensive?
 
+Colloquially, a "state transition" is the same as a "state change". This is a state change:
+
+```jsx
+setState(something);
+```
+
+Sometimes, setting state may lead to an "expensive" render. The way you can tell whether a render is "expensive" is by checking if the screen freezes. If you click on a button that sets state, and the button gets "stuck" for some time, and then gets "unstuck", this means that a bunch of code in your app had to run in between, and it took long enough for you to notice it. If React calling your components took longer than a single screen frame (~16ms) to run, the delay can be noticeable and hurt the user experience.
+
+(A slightly more technical way to figure out which state changes are expensive is by using a [tool like a Profiler](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html).)
+
+"State transition" is a colloquial term that's already in use, and React 18 builds on that usage to make it a formal concept in React. We don't often say "transition" in reference to something that's instant. We usually mean there's some kind of a delay. So this intuition matches how the React API is designed.
+
+If you mark the state update as a transition:
+
+```jsx
+startTransition(() => {
+  setState(something);
+})
+```
+
+then React will know that it might take a bit of time, and will treat it differently. In particular, it will not let the browser get "stuck", and instead will periodically let it handle new events (like typing) and even interrupt this transition with other state updates.
+
+You might have thought of "transitions" as having something to do with animation. That's another common colloquial meaning. Today, `startTransition` is not related to animations, which might be a bit confusing. However, the longer term plan is to have that API serve as an opt-in to enabling animations for a state change ([#41 (reply in thread)](https://github.com/reactwg/react-18/discussions/41#discussioncomment-846589)). This is why we don't mind the "clash" between two meanings. We think `startTransition` will represent both meanings in the future.
+
+For more on `startTransition`, read [#41](https://github.com/reactwg/react-18/discussions/41).
+
+### `useDeferredValue` → How can we mark less important parts of the screen?
+
+We have not added documentation for this API yet. We will add it in the coming weeks, so please bear with us!
+
+### What is a sub-tree basis?
+
+I believe you're referring to this sentence from [#4](https://github.com/reactwg/react-18/discussions/4):
+
+> These features are opt-in on a sub-tree basis without enabling StrictMode for your entire app.
+
+This is just confusing wording. "On a sub-tree basis" here means "for individual parts of the tree instead of the entire app". Here is how I would reword this sentence:
+
+> You can start using these features in a small part of your tree without enabling Strict Mode for your entire app.
+
+I will edit that post. Hope this helps!
+
+---
 # 🜂 SSR
 
 > How do you explain ssr?
@@ -159,6 +210,8 @@ Server-side rendering (SSR) is a tool designed to speed up that process so that 
 SSR helps make the initial page visible sooner but it doesn't make it interactive sooner because you still need to wait to download and run all the same JS code – with SSR, we're running all the components on the server now, but we're also running all of them on the client still. (Upcoming work on [Server Components](https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html) – a new experiment by the React team – will help make it so you can run some components _only_ on the server which can help this, but it won't be ready for a while.)
 
 In order to use SSR, you need to do two things: (a) make sure that each React component in your codebase only uses features that work on both server and client (there are some requirements, like not using the `window` object that's only available in browsers), and (b) change your server-side code to call React and do something with the resulting HTML. Some frameworks like Next.js come with SSR support out of the box, meaning that they have done part (b) for you.
+
+---
 
 # 🜂 APP STATE, COMPONENT STATE, UI STATE
 > How do you explain state and different types of state?
@@ -183,7 +236,9 @@ But maybe you’re rendering an already submitted comment in two places. If you 
 
 This is what people mean by different kinds of state. These aren’t technical terms. But “UI state” usually means some state specific to a concrete UI widget. Like text input’s text. Whereas “app state” usually means some information that’s shared between many components and needs to be in sync. So it’s usually placed outside of them.
 
-# 🜂 RENDERS: RENDERS, RE-RENDERS, WASTEFUL RENDERS?
+---
+
+# 🜂 RENDERS, RE-RENDERS, WASTEFUL RENDERS?
 > How do you explain Renders, re-renders, and wasteful renders and their impact on performance?
 
 When the user does something (like clicking a button), you might want to change what’s on the screen. The way you do it by setting state. In response, React does a “render”.
@@ -210,10 +265,12 @@ There are a few common ways to optimize “wasted” renders:
 
 _PS. I know design agencies don’t necessarily work top-down like this. It’s just a metaphor._
 
+---
+
 # 🜂 DEBOUNCING AND THROTTLING
 > How do you explain debouncing and throttling?
 
-## What is debouncing and throttling?
+### What is debouncing and throttling?
 
 Debouncing and throttling are too common techniques for dealing with things that happen "too often". Imagine you're meeting a friend, and they are telling you a story, but they struggle to pause when talking. Let's say you want to accommodate them while also responding to what they have to say, when possible. (I know this might be a bit contrived, but bear with me!)
 
@@ -247,17 +304,17 @@ This strategy is helpful if your friend wants you to respond as they go, but the
 
 [![Waiting for throttling](https://user-images.githubusercontent.com/810438/121429118-77e4c900-c96e-11eb-9ac1-88f3816487e6.png)](https://user-images.githubusercontent.com/810438/121429118-77e4c900-c96e-11eb-9ac1-88f3816487e6.png)
 
-## How does this relate to React?
+### How does this relate to React?
 
 Friend's "sentences" are events like button clicks or keyboard typing. Your "responses" are updating the screen.
 
 You use debouncing or throttling when the user is doing something too fast (e.g. typing), and updating the screen in response to _each_ individual event is just too slow. So you either wait for the user to stop typing (debouncing) or you update the screen once in a while, like once a second (throttling).
 
-## What about React 18?
+### What about React 18?
 
 The interesting thing is that [`startTransition`](https://github.com/reactwg/react-18/discussions/41) makes _both_ strategies unnecessary for many cases. Let's add one more strategy that you didn't have before React 18:
 
-### Cooperative
+#### Cooperative
 
 You start responding _immediately_ the moment your friend finishes a sentence, without waiting. But you've agreed with your friend that they may interrupt you if they want to keep going. So in that case you'll abandon your attempt to respond. Right after the next sentence, you'll try again. And so on:
 
@@ -274,6 +331,7 @@ In the coding example, this means that React starts rendering _immediately_ afte
 
 Which one feels smoother?
 
+---
 # 🜂 FLUSH SYNC
 > How do you explain flush sync?
 
@@ -288,6 +346,8 @@ flushSync(() => {
 "Flush synchronously" = "Update the screen now"
 
 Normally, you shouldn't need `flushSync`. You would only use it if you need to work around some issue where React updates the screen later than you need it to. It is very rarely used in practice.
+
+---
 
 # 🜂 DISCRETE EVENTS
 > How do you explain discrete events?
